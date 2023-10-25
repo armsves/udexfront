@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@900&display=swap');
 
 body {
-  background: #F9FAFB;
+  background: black;
 }
 
 .App {
@@ -19,10 +19,19 @@ body {
 
 .navbar {
   justify-content: space-evenly;
+  margin: 10px;
+  padding: 10px; /* Elimina relleno (padding) */
+}
 
-  width: 100%; /* Ocupa todo el ancho de la pantalla */
-  margin: 0; /* Elimina márgenes */
-  padding: 0; /* Elimina relleno (padding) */
+a {
+  text-decoration: none; /* Elimina el subrayado */
+  color: #007bff; /* Cambia el color del texto normal a azul (ejemplo) */
+}
+
+/* Estilo para los enlaces cuando se encuentran en hover */
+a:hover {
+  text-decoration: underline; /* Añade subrayado en hover */
+  color: #ff6600; /* Cambia el color en hover (ejemplo) */
 }
 
 .container {

@@ -34,7 +34,7 @@ function App() {
   const web3Modal = getWeb3Modal(connectOptions);
   const [accountadd, setaccountadd] = useState("");
   const [accountbalance, setaccountbalance] = useState(0);
-  const [xdcprice, setXdcprice] = useState("");
+ 
 
   const connect = async (event) => {
     event.preventDefault();
@@ -52,29 +52,14 @@ function App() {
     setConnecting(true);
   }
 
-  let countdown = 5;
-  const updateCountdown = () => {
-    countdown--;
-    if (countdown === 0) {
-      countdown = 5;
-      fetchCryptoData();
-    }
+  const linkStyle = {
+    textDecoration: 'none', // Elimina el subrayado
+    color: 'white', // Define el color del texto como blanco
+    margin: '10px',
+    marginLeft: '100px',
+    fontSize: '2rem',
+    fontWeight: '600',
   };
-
-  const fetchCryptoData = () => {
-    const apiUrl = 'https://openapi.bitrue.com/api/v1/ticker/price?symbol=XDCETH';
-    fetch(apiUrl, {})
-      .then(response => response.json())
-      .then(data => {
-        let xdcpric = "Current Price: " + data.price + " USDT/XDC";
-        setXdcprice(xdcpric);
-      })
-      .catch(error => {
-        console.log('Error fetching crypto data:', error);
-      });
-  };
-  setInterval(updateCountdown, 1000);
-  fetchCryptoData();
 
   /*
         <section className="App-content">
@@ -94,17 +79,9 @@ function App() {
         </div>
         
         <nav className="navbar">
-          <ul>
-            <li>
-              <Link to="Home/">Home</Link>
-            </li>
-            <li>
-              <Link to="Liquidity/">Liquidity</Link>
-            </li>
-            <li>
-              <Link to="Trade/">Trade</Link>
-            </li>
-          </ul>
+              <Link style={linkStyle} to="Home/">Home</Link>
+              <Link style={linkStyle} to="Liquidity/">Liquidity</Link>
+              <Link style={linkStyle} to="Trade/">Trade</Link>
         </nav>
         
         <div className="botonderecha">
@@ -115,10 +92,6 @@ function App() {
 
         </div>
       </nav>
-      <header className="App-header">
-        <h1>Perpetual DEX</h1>
-        <h2>{xdcprice}</h2>
-      </header>
       <Routes>
           <Route path="/Home/" element={<Home />} />
           
