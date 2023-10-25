@@ -10,7 +10,7 @@ import logo from '../assets/logoudex.jpg';
 
 import { BrowserRouter as Router, Route, Routes, Link, Switch } from 'react-router-dom';
 import Home from './Home/Home';
-//import Home from './Liquidity/Liquidity';
+import Liquidity from './Liquidity/Liquidity';
 import Trade from './Trade/Trade';
 
 import { useState } from 'react';
@@ -72,8 +72,8 @@ function App() {
 
   //<TradingViewChart />
   return (
-    <div className="App">
-      <nav className="bg-dark container">
+    <div className="App bg-dark ">
+      <nav className="container">
         <div className="logo">
           <img src={logo} alt="Logo UDEX" width={150} />
         </div>
@@ -94,7 +94,7 @@ function App() {
       </nav>
       <Routes>
           <Route path="/Home/" element={<Home />} />
-          
+          <Route path="/Liquidity/" element={<Liquidity />} />
           <Route path="/Trade/" element={<Trade />} />
         </Routes>
     </div>
