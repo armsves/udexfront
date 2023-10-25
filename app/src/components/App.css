@@ -53,6 +53,22 @@ a:hover {
   border-radius: 45px;
 }
 
+.buttonLong {
+  margin: 5px;
+  border-radius: 45px;
+  background-color: teal;
+  border-color: teal;
+  font-size: 1.5rem;
+}
+
+.buttonShort {
+  margin: 5px;
+  border-radius: 45px;
+  background-color: red;
+  border-color: red;
+  font-size: 1.5rem;
+}
+
 .App-header {
   background-color: #60b2e8;
   background-image: linear-gradient(135deg, #60b2e8 0%, #9599E2 100%);
@@ -83,4 +99,16 @@ a:hover {
   max-width: 60rem;
   margin: auto;
   text-align: left;
+}
+
+.container2 {
+  display: flex; /* Utiliza un contenedor flexible */
+  justify-content: space-between; /* Espaciado entre las columnas */
+  align-items: center; /* Centra verticalmente los elementos en las columnas */
+}
+
+.column2 {
+  flex: 1; /* Cada columna toma un tercio del ancho disponible */
+  padding: 20px; /* Espacio entre el contenido y el borde de la columna */
+ margin: 5px;
 }

@@ -4,7 +4,7 @@ import TradingViewChart from '../Chart/chart';
 function Trade() {
     const [count, setCount] = useState(0);
     const [xdcprice, setXdcprice] = useState("");
-    
+
     let countdown = 5;
     const updateCountdown = () => {
         countdown--;
@@ -19,7 +19,7 @@ function Trade() {
         fetch(apiUrl, {})
             .then(response => response.json())
             .then(data => {
-                let xdcpric = "Current Price: " + data.price + " USDT/XDC";
+                let xdcpric = "Current Price: " + data.price + " ETH/XDC";
                 setXdcprice(xdcpric);
             })
             .catch(error => {
@@ -30,12 +30,19 @@ function Trade() {
     fetchCryptoData();
 
     return (
-
-        <div>
-            <h2>{xdcprice}</h2>
-            <h1>Tradingview</h1>
-            <TradingViewChart />
+        <div className="container2">
+        <div className="column2">
+          <h2>{xdcprice}</h2>
+          <TradingViewChart />
         </div>
+        <div className="column2">
+        <button className="buttonLong">Long</button>
+        <button className="buttonShort">Short</button>
+          Buying Power
+          <button className="button">Confirm </button>
+          
+        </div>
+      </div>
     );
 }
 
