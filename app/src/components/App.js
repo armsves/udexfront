@@ -80,7 +80,7 @@ function App() {
         
         <nav className="navbar">
               <Link style={linkStyle} to="Home/">Home</Link>
-              <Link style={linkStyle} to="Liquidity/">Liquidity</Link>
+              <Link style={linkStyle} to="Liquidity/">Liquidity Pools</Link>
               <Link style={linkStyle} to="Trade/">Trade</Link>
         </nav>
         
