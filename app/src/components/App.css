@@ -17,6 +17,14 @@ body {
   font-weight: 600;
 }
 
+.navbar {
+  justify-content: space-evenly;
+
+  width: 100%; /* Ocupa todo el ancho de la pantalla */
+  margin: 0; /* Elimina márgenes */
+  padding: 0; /* Elimina relleno (padding) */
+}
+
 .container {
   display: flex;
   justify-content: space-between; /* Esto separa los elementos al máximo en el contenedor */

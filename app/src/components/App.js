@@ -8,6 +8,11 @@ import { abi as consumerabi } from '../artifacts/contracts/CustomerContract.sol/
 import { CustomerContract as customeraddress } from '../output.json';
 import logo from '../assets/logoudex.jpg';
 
+import { BrowserRouter as Router, Route, Routes, Link, Switch } from 'react-router-dom';
+import Home from './Home/Home';
+//import Home from './Liquidity/Liquidity';
+import Trade from './Trade/Trade';
+
 import { useState } from 'react';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -87,6 +92,21 @@ function App() {
         <div className="logo">
           <img src={logo} alt="Logo UDEX" width={150} />
         </div>
+        
+        <nav className="navbar">
+          <ul>
+            <li>
+              <Link to="Home/">Home</Link>
+            </li>
+            <li>
+              <Link to="Liquidity/">Liquidity</Link>
+            </li>
+            <li>
+              <Link to="Trade/">Trade</Link>
+            </li>
+          </ul>
+        </nav>
+        
         <div className="botonderecha">
           Balance: {accountbalance.toFixed(3)} XDC
           <button className="button" onClick={connect} disabled={connecting}>
@@ -99,7 +119,11 @@ function App() {
         <h1>Perpetual DEX</h1>
         <h2>{xdcprice}</h2>
       </header>
-
+      <Routes>
+          <Route path="/Home/" element={<Home />} />
+          
+          <Route path="/Trade/" element={<Trade />} />
+        </Routes>
     </div>
   );
 }
