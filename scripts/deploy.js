@@ -5,7 +5,7 @@ async function deploy(name, ...params) {
   const Contract = await ethers.getContractFactory(name);
   return await Contract.deploy(...params).then(f => f.deployed());
 }
-
+/*
 async function main() {
   const sample = await deploy('SampleContract', "0xb3db178db835b4dfcb4149b2161644058393267d");
   console.log("sample deployed to:", sample.address);
@@ -14,6 +14,18 @@ async function main() {
   writeFileSync('output.json', JSON.stringify({
     SampleContract: sample.address,
     CustomerContract: consumer.address
+  }, null, 2));
+
+}
+*/
+async function main() {
+  const sample = await deploy('UDex');
+  console.log("udex deployed to:", sample.address);
+  const consumer = await deploy('Oracle');
+  console.log("oracle deployed to:", consumer.address);
+  writeFileSync('output.json', JSON.stringify({
+    Udex: sample.address,
+    Oracle: consumer.address
   }, null, 2));
 
 }

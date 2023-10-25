@@ -41,13 +41,15 @@
     "dotenv": "^8.2.0",
     "ethereum-waffle": "^3.2.2",
     "ethers": "^5.0.30",
-    "hardhat": "^2.0.8",
+    "hardhat": "^2.18.2",
     "rollup": "^2.38.5"
   },
   "dependencies": {
     "@goplugin/contracts": "^0.0.2",
     "@openzeppelin/contracts": "^4.6.0",
+    "axios": "^1.5.1",
     "eth-sig-util": "^3.0.1",
-    "express": "^4.17.3"
+    "express": "^4.17.3",
+    "react-stockcharts": "^0.7.8"
   }
 }
