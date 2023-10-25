@@ -28,19 +28,19 @@ export default function TradingViewWidget() {
       return () => onLoadScriptRef.current = null;
 
       function createWidget() {
-        if (document.getElementById('tradingview_466a3') && 'TradingView' in window) {
+        if (document.getElementById('tradingview_e6fdb') && 'TradingView' in window) {
           new window.TradingView.widget({
             width: 980,
             height: 610,
-            symbol: "BITRUE:XDCETH",
+            symbol: "KUCOIN:XDCUSDT",
             interval: "240",
             timezone: "Etc/UTC",
             theme: "dark",
-            style: "3",
+            style: "1",
             locale: "en",
             enable_publishing: false,
             save_image: false,
-            container_id: "tradingview_466a3"
+            container_id: "tradingview_e6fdb"
           });
         }
       }
@@ -50,7 +50,7 @@ export default function TradingViewWidget() {
 
   return (
     <div className='tradingview-widget-container'>
-      <div id='tradingview_466a3' />
+      <div id='tradingview_e6fdb' />
       <div className="tradingview-widget-copyright">
         <a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank"><span className="blue-text">Track all markets on TradingView</span></a>
       </div>
