@@ -21,27 +21,36 @@ body {
 .navbar {
   justify-content: space-evenly;
   margin: 10px;
-  padding: 10px; /* Elimina relleno (padding) */
+  padding: 10px;
+  /* Elimina relleno (padding) */
 }
 
 a {
-  text-decoration: none; /* Elimina el subrayado */
-  color: #007bff; /* Cambia el color del texto normal a azul (ejemplo) */
+  text-decoration: none;
+  /* Elimina el subrayado */
+  color: #007bff;
+  /* Cambia el color del texto normal a azul (ejemplo) */
 }
 
 /* Estilo para los enlaces cuando se encuentran en hover */
 a:hover {
-  text-decoration: underline; /* Añade subrayado en hover */
-  color: #ff6600; /* Cambia el color en hover (ejemplo) */
+  text-decoration: underline;
+  /* Añade subrayado en hover */
+  color: #ff6600;
+  /* Cambia el color en hover (ejemplo) */
 }
 
 .container {
   display: flex;
-  justify-content: space-between; /* Esto separa los elementos al máximo en el contenedor */
+  justify-content: space-between;
+  /* Esto separa los elementos al máximo en el contenedor */
   align-items: center;
-  width: 100%; /* Ocupa todo el ancho de la pantalla */
-  margin: 0; /* Elimina márgenes */
-  padding: 0; /* Elimina relleno (padding) */
+  width: 100%;
+  /* Ocupa todo el ancho de la pantalla */
+  margin: 0;
+  /* Elimina márgenes */
+  padding: 0;
+  /* Elimina relleno (padding) */
 }
 
 .logo {
@@ -70,13 +79,17 @@ a:hover {
 }
 
 .buttonLongSelected {
-  background-color: darkgreen; /* Cambia el fondo cuando está seleccionado */
-  color: white; /* Cambia el color del texto cuando está seleccionado */
+  background-color: darkgreen;
+  /* Cambia el fondo cuando está seleccionado */
+  color: white;
+  /* Cambia el color del texto cuando está seleccionado */
 }
 
 .buttonShortSelected {
-  background-color: darkred; /* Cambia el fondo cuando está seleccionado */
-  color: white; /* Cambia el color del texto cuando está seleccionado */
+  background-color: darkred;
+  /* Cambia el fondo cuando está seleccionado */
+  color: white;
+  /* Cambia el color del texto cuando está seleccionado */
 }
 
 .App-header {
@@ -112,13 +125,24 @@ a:hover {
 }
 
 .container2 {
-  display: flex; /* Utiliza un contenedor flexible */
-  justify-content: space-between; /* Espaciado entre las columnas */
-  align-items: center; /* Centra verticalmente los elementos en las columnas */
+  display: flex;
+  /* Utiliza un contenedor flexible */
+  justify-content: space-between;
+  /* Espaciado entre las columnas */
+  align-items: center;
+  /* Centra verticalmente los elementos en las columnas */
 }
 
 .column2 {
-  flex: 1; /* Cada columna toma un tercio del ancho disponible */
-  padding: 20px; /* Espacio entre el contenido y el borde de la columna */
- margin: 5px;
+  flex: 1;
+  padding: 20px;
+  margin: 5px;
+  background-color: rgb(65, 65, 65);
+  border-radius: 45px;
+}
+
+.column {
+  flex: 1;
+  padding: 20px;
+  margin: 5px;
 }

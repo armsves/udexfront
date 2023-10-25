@@ -4,6 +4,7 @@ import TradingViewChart from '../Chart/chart';
 function Trade() {
     const [count, setCount] = useState(0);
     const [xdcprice, setXdcprice] = useState("");
+    const [marketSelected, setMarketSelected] = useState(true);
 
     let countdown = 5;
     const updateCountdown = () => {
@@ -20,7 +21,10 @@ function Trade() {
             .then(response => response.json())
             .then(data => {
                 let xdcpric = "Current Price: " + data.price + " XDC/USDT";
-                setXdcprice(xdcpric);
+                setXdcprice(data.price);
+                if (marketSelected) {
+                    setPrice(data.price);
+                }
             })
             .catch(error => {
                 console.log('Error fetching crypto data:', error);
@@ -60,14 +64,34 @@ function Trade() {
     };
 
     const handleOrdertypeChange = (e) => {
-        setOrdertype(e.target.value); // Actualiza el estado del menú desplegable
+        const selectedOrdertype = e.target.value;
+        setOrdertype(selectedOrdertype); // Actualiza el estado del menú desplegable
+
+        // Si la opción seleccionada es "Market," deshabilita el campo de precio
+        if (selectedOrdertype === 'Market') {
+            setMarketSelected(true);
+        } else {
+            setMarketSelected(false);
+        }
     };
 
+    const [amountXDC, setAmountXDC] = useState(''); // Estado para el campo de precio
+    const [amountUSDT, setAmountUSDT] = useState(''); // Estado para el campo de precio
+
+    const handleAmountXDCChange = (e) => {
+        setAmountXDC(e.target.value); // Actualiza el estado del campo de precio
+        setAmountUSDT(e.target.value/xdcprice)
+    };
+
+    const handleAmountUSDTChange = (e) => {
+        setAmountUSDT(e.target.value); // Actualiza el estado del menú desplegable
+        setAmountXDC(e.target.value*xdcprice);
+    };
 
     return (
         <div className="container2">
             <div className="column2">
-                <h2>{xdcprice}</h2>
+                <h2>Current Price: {xdcprice} XDC/USDT</h2>
                 <TradingViewChart />
             </div>
             <div className="column2">
@@ -79,21 +103,24 @@ function Trade() {
                 </button>
                 {displayLongInfo && (
                     <div>
-                        <div className="column2">
+                        <div className="column">
                             <label htmlFor="price">Price </label>
                             <label htmlFor="ordertype"> Ordertype</label>
                         </div>
 
-                        <div className="column2">
-                            
-                            <input type="number" id="price" value={price} onChange={handlePriceChange} />
+                        <div className="column">
+                            <input type="number" id="price" value={price} disabled={marketSelected} onChange={handlePriceChange} />
                             <select id="ordertype" value={ordertype} onChange={handleOrdertypeChange}>
                                 <option value="Market">Market</option>
                                 <option value="Limit">Limit</option>
-                                <option value="StopLossLimit">Stop Loss Limit</option>
                             </select>
                         </div>
-                        <p>Amount</p>
+                        <div className="column">
+                            <p>Amount</p>
+                            XDC <input type="number" id="amountXDC" value={amountXDC} onChange={handleAmountXDCChange} />
+                            <p></p>
+                            USDT <input type="number" id="amountUSDT" value={amountUSDT} onChange={handleAmountUSDTChange} />
+                        </div>
                         <p>Buying power</p>
                         <p>Summary</p>
                         <p>Entry Price</p>
