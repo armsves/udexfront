@@ -21,6 +21,7 @@
     "react-dom": "^17.0.1",
     "react-router-dom": "^6.17.0",
     "react-scripts": "4.0.2",
+    "react-slider": "^2.0.6",
     "react-solidity-xdc3": "^1.0.14",
     "react-toastify": "^7.0.3",
     "redis": "^4.1.0",

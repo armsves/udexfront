@@ -80,27 +80,30 @@ function Trade() {
 
     const handleAmountXDCChange = (e) => {
         setAmountXDC(e.target.value); // Actualiza el estado del campo de precio
-        setAmountUSDT(e.target.value/xdcprice)
+        setAmountUSDT(e.target.value / xdcprice)
     };
 
     const handleAmountUSDTChange = (e) => {
         setAmountUSDT(e.target.value); // Actualiza el estado del menú desplegable
-        setAmountXDC(e.target.value*xdcprice);
+        setAmountXDC(e.target.value * xdcprice);
     };
 
+    const [sliderValue, setSliderValue] = useState(1);
+
+    const handleSliderChange = (e) => {
+        setSliderValue(e.target.value);
+      };
+
     return (
+        <>
         <div className="container2">
             <div className="column2">
                 <h2>Current Price: {xdcprice} XDC/USDT</h2>
                 <TradingViewChart />
             </div>
             <div className="column2">
-                <button className={buttonLongClassName} onClick={handleLongClick}>
-                    Long
-                </button>
-                <button className={buttonShortClassName} onClick={handleShortClick}>
-                    Short
-                </button>
+                <button className={buttonLongClassName} onClick={handleLongClick}>Long</button>
+                <button className={buttonShortClassName} onClick={handleShortClick}>Short</button>
                 {displayLongInfo && (
                     <div>
                         <div className="column">
@@ -121,30 +124,36 @@ function Trade() {
                             <p></p>
                             USDT <input type="number" id="amountUSDT" value={amountUSDT} onChange={handleAmountUSDTChange} />
                         </div>
-                        <p>Buying power</p>
+                        <p>Leverage: 
+                        
+                        <input type="range" id="slider" min="1" max="15" step="1" value={sliderValue}
+                            onChange={handleSliderChange} />
+                        {sliderValue}
+                        </p>
                         <p>Summary</p>
-                        <p>Entry Price</p>
-                        <p>Trading Fee</p>
-                        <p>Price Impact</p>
+                        <p>Entry Price: {price}</p>
+                        <p>Trading Fee: {amountUSDT * 0.01}</p>
                         <button className="buttonLong">Confirm</button>
                     </div>
                 )}
                 {displayShortInfo && (
                     <div>
-                        <p>Price</p>
-                        <p>Ordertype</p>
-                        <p>Amount</p>
-                        <p>Buying power</p>
-                        <p>Summary</p>
-                        <p>Entry Price</p>
-                        <p>Trading Fee</p>
-                        <p>Price Impact</p>
+
                         <button className="buttonShort">Confirm</button>
                     </div>
                 )}
 
             </div>
+
         </div>
+        <div className="openPositions">
+                Open Positions
+                <div>
+                <button className="buttonClosePosition">Close Position</button>
+                </div>
+                
+            </div>
+        </>
     );
 }
 

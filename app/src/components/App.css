@@ -92,6 +92,15 @@ a:hover {
   /* Cambia el color del texto cuando está seleccionado */
 }
 
+.buttonClosePosition{
+  margin: 5px;
+  width: auto;
+  border-radius: 45px;
+  background-color:orangered;
+  border-color: orangered;
+  font-size: 1rem;
+}
+
 .App-header {
   background-color: #60b2e8;
   background-image: linear-gradient(135deg, #60b2e8 0%, #9599E2 100%);
@@ -145,4 +154,14 @@ a:hover {
   flex: 1;
   padding: 20px;
   margin: 5px;
+}
+
+.openPositions {
+  flex: 1;
+  padding: 20px;
+  margin: 5px;
+  background-color: rgb(65, 65, 65);
+  border-radius: 45px;
+  font-size: 1.5rem;
+  font-weight: 600;
 }
