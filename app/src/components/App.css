@@ -8,16 +8,33 @@ body {
   text-align: center;
 }
 
-.putodiv {
+.botonderecha {
   display: flex;
   justify-content: flex-end;
-  color:aliceblue;
+  color: aliceblue;
+  align-items: center;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between; /* Esto separa los elementos al máximo en el contenedor */
+  align-items: center;
+  width: 100%; /* Ocupa todo el ancho de la pantalla */
+  margin: 0; /* Elimina márgenes */
+  padding: 0; /* Elimina relleno (padding) */
+}
+
+.logo {
+  padding-left: 0;
 }
 
 .button {
   margin: 5px;
   border-radius: 45px;
 }
+
 .App-header {
   background-color: #60b2e8;
   background-image: linear-gradient(135deg, #60b2e8 0%, #9599E2 100%);

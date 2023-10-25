@@ -6,6 +6,7 @@ import { abi } from '../artifacts/contracts/SampleContract.sol/SampleContract.js
 import { SampleContract as address } from '../output.json';
 import { abi as consumerabi } from '../artifacts/contracts/CustomerContract.sol/CustomerContract.json';
 import { CustomerContract as customeraddress } from '../output.json';
+import logo from '../assets/logoudex.jpg';
 
 import { useState } from 'react';
 import { ToastContainer } from 'react-toastify';
@@ -37,23 +38,22 @@ function App() {
     const sample = await createContractInstance(address, abi, provider);
     const consumer = await createContractInstance(customeraddress, consumerabi, provider);
     const account = await signer.getAddress();
-    console.log(await signer.getBalance()/1e18);
-    
-    setaccountbalance(await signer.getBalance()/1e18);
+    console.log(await signer.getBalance() / 1e18);
+
+    setaccountbalance(await signer.getBalance() / 1e18);
     setaccountadd(account.substring(0, 2) + "..." + account.substring(account.length - 4));
     setethereumContext({ provider, sample, account, consumer })
     log("Connect", "Get Address", await signer.getAddress());
     setConnecting(true);
   }
 
-  let countdown = 5; // Set the initial countdown value (in seconds)
+  let countdown = 5;
   const updateCountdown = () => {
     countdown--;
     if (countdown === 0) {
-      countdown = 5; // Reset the countdown
-      fetchCryptoData(); // Fetch new data
+      countdown = 5;
+      fetchCryptoData();
     }
-    //document.getElementById('countdown').innerText = "Refresh in " + countdown.toString() + " seconds";
   };
 
   const fetchCryptoData = () => {
@@ -61,13 +61,8 @@ function App() {
     fetch(apiUrl, {})
       .then(response => response.json())
       .then(data => {
-        //console.log(data);
-        let priceTicker = document.getElementById("price-ticker");
-        //if (priceTicker !== null) {
-          //document.getElementById("price-ticker").innerHTML = "Current Price: " + data.price + " USDT/XDC";
-          let xdcpric = "Current Price: " + data.price + " USDT/XDC";
-          setXdcprice(xdcpric);
-        //}
+        let xdcpric = "Current Price: " + data.price + " USDT/XDC";
+        setXdcprice(xdcpric);
       })
       .catch(error => {
         console.log('Error fetching crypto data:', error);
@@ -85,21 +80,26 @@ function App() {
       <ToastContainer hideProgressBar={true} />
       */
 
-      //<TradingViewChart />
+  //<TradingViewChart />
   return (
     <div className="App">
-      <nav className="bg-dark ">
-        <div className="putodiv">
-          <form onSubmit={connect}>
-           Balance: {accountbalance.toFixed(3)} XDC<button className="button" type="submit" disabled={connecting}>{connecting ? accountadd : 'Connect'}</button>
-          </form>
+      <nav className="bg-dark container">
+        <div className="logo">
+          <img src={logo} alt="Logo UDEX" width={150} />
+        </div>
+        <div className="botonderecha">
+          Balance: {accountbalance.toFixed(3)} XDC
+          <button className="button" onClick={connect} disabled={connecting}>
+            {connecting ? accountadd : 'Connect'}
+          </button>
+
         </div>
       </nav>
       <header className="App-header">
         <h1>Perpetual DEX</h1>
         <h2>{xdcprice}</h2>
       </header>
-      
+
     </div>
   );
 }
