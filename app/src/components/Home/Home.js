@@ -5,9 +5,8 @@ function Home() {
 
   return (
     <div>
-      <h1>Home</h1>
-      <p>Count: {count}</p>
-      <button onClick={() => setCount(count + 1)}>Increment</button>
+      <h1>UDex descentralized perpetual exchange on XDC</h1>
+    <h3>We want to be the first Dex on XDC blockchain</h3>
     </div>
   );
 }

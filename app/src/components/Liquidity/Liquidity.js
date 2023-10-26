@@ -13,9 +13,6 @@ function Liquidity() {
             Total Liquidity
             <button className="buttonLong">Add Liquidity</button>
             <button className="buttonShort">Remove Liquidity</button>
-
-
-
         </div>
     </div>
   );

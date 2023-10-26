@@ -5,8 +5,8 @@ const { executeTransaction, EthereumContext, log, queryData } = require('react-s
 function Sample() {
   const [submitting, setSubmitting] = useState(false);
   const { provider, sample, consumer } = useContext(EthereumContext);
-  console.log("sample", sample)
-  console.log("consumer", consumer)
+  //console.log("sample", sample)
+  console.log("consumersample", consumer)
 
   const registerFlights = async (event) => {
     event.preventDefault();
@@ -32,8 +32,10 @@ function Sample() {
   const getPriceInfo = async (event) => {
     event.preventDefault();
     setSubmitting(true);
-    let response1 = await executeTransaction(consumer, provider, 'getPriceInfo', [], 0);
-    log("getPriceInfo", "hash", response1.txHash)
+    //let response1 = await executeTransaction(consumer, provider, 'getPriceInfo', [], 0);
+    //log("getPriceInfo", "hash", response1.txHash)
+    let response1 = await queryData('xdc0d72BA97CFA96e2027F5850BE1411214F9Af602b', provider, 'tryfunction');
+    log(response1);
     setSubmitting(false);
   }
 

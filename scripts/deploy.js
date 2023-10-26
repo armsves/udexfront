@@ -19,13 +19,13 @@ async function main() {
 }
 */
 async function main() {
-  const sample = await deploy('UDex');
+  const sample = await deploy('UDex',"0xb3db178db835b4dfcb4149b2161644058393267d");
   console.log("udex deployed to:", sample.address);
-  const consumer = await deploy('Oracle');
-  console.log("oracle deployed to:", consumer.address);
+  //const consumer = await deploy('Oracle');
+  //console.log("oracle deployed to:", consumer.address);
   writeFileSync('output.json', JSON.stringify({
     Udex: sample.address,
-    Oracle: consumer.address
+    //Oracle: consumer.address
   }, null, 2));
 
 }
